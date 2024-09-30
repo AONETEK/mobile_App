@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'component/filter_bottom_sheet.dart';
-import 'component/purchaseWidget.dart';
+import '../../../components/searchFilterComponent/filter_bottom_sheet.dart';
+import 'widget/purchaseWidget.dart';
 
 class PurchaseOrderScreen extends StatefulWidget {
   @override
@@ -178,16 +178,11 @@ class _HomePageState extends State<PurchaseOrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Phiếu mua hàng")),
       body: Column(
         children: [
-          ElevatedButton(
-            onPressed: () => _showFilterBottomSheet(context),
-            child: Text("Mở lọc"),
-          ),
           Expanded(
             child: Purchasewidget(
-              title: 'Danh sách mua hàng',
+              title: 'Danh sách phiếu mua hàng',
               showFilterDialog: () => _showFilterBottomSheet(context),
               data: data,
               iconButton: IconButton(

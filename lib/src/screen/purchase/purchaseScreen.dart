@@ -5,6 +5,8 @@ import '../../utils/bottomNav.dart';
 import './navPurchaseScreen/invoiceScreen.dart';
 import './navPurchaseScreen/purchaseOrderScreen.dart';
 import './navPurchaseScreen/warehouseReceiptScreen.dart';
+import './navPurchaseScreen/salesReturnScreen.dart';
+import './navPurchaseScreen/orderScreen.dart';
 
 class PurchaseScreen extends StatefulWidget {
   @override
@@ -22,6 +24,8 @@ class _HomePageState extends State<PurchaseScreen> {
   @override
   Widget build(BuildContext context) {
     final iconList = [
+      IconTitle(
+          icon: Icon(Icons.shopping_cart, size: 24), title: 'Đơn đặt hàng'),
       IconTitle(icon: Icon(Icons.receipt, size: 24), title: 'Phiếu mua hàng'),
       IconTitle(icon: Icon(Icons.receipt_long, size: 24), title: 'Hóa đơn'),
       IconTitle(icon: Icon(Icons.inventory, size: 24), title: 'Phiếu nhập kho'),
@@ -40,11 +44,16 @@ class _HomePageState extends State<PurchaseScreen> {
   Widget _buildSelectedScreen() {
     switch (_selectedIndex) {
       case 0:
-        return PurchaseOrderScreen();
+        // return SalesreturnScreen();
+        return OrderScreen();
       case 1:
-        return InvoiceScreen();
+        return PurchaseOrderScreen();
       case 2:
+        return InvoiceScreen();
+      case 3:
         return WarehouseReceiptScreen();
+      case 4:
+        return SalesreturnScreen();
       default:
         return PurchaseOrderScreen();
     }

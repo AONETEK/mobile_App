@@ -91,12 +91,6 @@ class _HomeScreenState extends State<HomeScreen> {
     print('_isBusy is now: $_isBusy');
   }
 
-  // void _onItemTapped(int index) {
-  //   setState(() {
-  //     _selectedIndex = index;
-  //   });
-  // }
-
   void _setupFirebaseMessaging() async {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
 
