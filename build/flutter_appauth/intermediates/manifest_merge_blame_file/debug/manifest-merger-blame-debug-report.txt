@@ -1,0 +1,24 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:tools="http://schemas.android.com/tools"
+4    package="io.crossingthestreams.flutterappauth" >
+5
+6    <uses-sdk
+7        android:minSdkVersion="16"
+7-->C:\Users\lam08\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_appauth-6.0.7\android\src\main\AndroidManifest.xml
+8        android:targetSdkVersion="16" />
+8-->C:\Users\lam08\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_appauth-6.0.7\android\src\main\AndroidManifest.xml
+9
+10    <application>
+10-->C:\Users\lam08\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_appauth-6.0.7\android\src\main\AndroidManifest.xml:4:3-8:17
+11        <activity
+11-->C:\Users\lam08\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_appauth-6.0.7\android\src\main\AndroidManifest.xml:5:5-7:39
+12            android:name="net.openid.appauth.RedirectUriReceiverActivity"
+12-->C:\Users\lam08\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_appauth-6.0.7\android\src\main\AndroidManifest.xml:5:15-76
+13            android:theme="@style/Theme.AppCompat.Translucent.NoTitleBar"
+13-->C:\Users\lam08\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_appauth-6.0.7\android\src\main\AndroidManifest.xml:6:7-68
+14            tools:replace="android:theme" />
+14-->C:\Users\lam08\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_appauth-6.0.7\android\src\main\AndroidManifest.xml:7:7-36
+15    </application>
+16
+17</manifest>

@@ -1,0 +1,14 @@
+io.flutter.plugins.sharedpreferences.shared_preferences_android-core-1.6.0-0 C:\Users\lam08\.gradle\caches\transforms-3\2589cfcddb06ec0a3ccb3dc05ffc27af\transformed\core-1.6.0\res
+io.flutter.plugins.sharedpreferences.shared_preferences_android-jetified-window-1.0.0-beta04-1 C:\Users\lam08\.gradle\caches\transforms-3\2d040304e2b6807661a90ba1c95bfcf7\transformed\jetified-window-1.0.0-beta04\res
+io.flutter.plugins.sharedpreferences.shared_preferences_android-jetified-datastore-1.0.0-2 C:\Users\lam08\.gradle\caches\transforms-3\4f81ad514725468a1f46965de9513026\transformed\jetified-datastore-1.0.0\res
+io.flutter.plugins.sharedpreferences.shared_preferences_android-jetified-window-java-1.0.0-beta04-3 C:\Users\lam08\.gradle\caches\transforms-3\5325e9917d93573146ce75865ec1a805\transformed\jetified-window-java-1.0.0-beta04\res
+io.flutter.plugins.sharedpreferences.shared_preferences_android-jetified-annotation-experimental-1.1.0-4 C:\Users\lam08\.gradle\caches\transforms-3\6aab3b8678a1713e63613e8f0b5e6836\transformed\jetified-annotation-experimental-1.1.0\res
+io.flutter.plugins.sharedpreferences.shared_preferences_android-jetified-datastore-preferences-1.0.0-5 C:\Users\lam08\.gradle\caches\transforms-3\d2e57d5d2aaf69264b50d33491e35941\transformed\jetified-datastore-preferences-1.0.0\res
+io.flutter.plugins.sharedpreferences.shared_preferences_android-main-6 C:\Users\lam08\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.3.1\android\src\main\res
+io.flutter.plugins.sharedpreferences.shared_preferences_android-release-7 C:\Users\lam08\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.3.1\android\src\release\res
+io.flutter.plugins.sharedpreferences.shared_preferences_android-pngs-8 C:\Users\lam08\Desktop\App\build\shared_preferences_android\generated\res\pngs\release
+io.flutter.plugins.sharedpreferences.shared_preferences_android-resValues-9 C:\Users\lam08\Desktop\App\build\shared_preferences_android\generated\res\resValues\release
+io.flutter.plugins.sharedpreferences.shared_preferences_android-rs-10 C:\Users\lam08\Desktop\App\build\shared_preferences_android\generated\res\rs\release
+io.flutter.plugins.sharedpreferences.shared_preferences_android-mergeReleaseResources-11 C:\Users\lam08\Desktop\App\build\shared_preferences_android\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.flutter.plugins.sharedpreferences.shared_preferences_android-mergeReleaseResources-12 C:\Users\lam08\Desktop\App\build\shared_preferences_android\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.flutter.plugins.sharedpreferences.shared_preferences_android-merged_res-13 C:\Users\lam08\Desktop\App\build\shared_preferences_android\intermediates\merged_res\release

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "575475601937",
+    "project_id": "notification-9406f",
+    "storage_bucket": "notification-9406f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575475601937:android:9fdfe2797b4639854a97b0",
+        "android_client_info": {
+          "package_name": "com.example.loginkeycloakapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASoEkizK1p6gRYAmJ2hN7tQT-GPjCyVvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
