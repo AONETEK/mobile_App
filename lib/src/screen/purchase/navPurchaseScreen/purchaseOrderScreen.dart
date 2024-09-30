@@ -1,212 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:loginkeycloakapp/src/screen/purchase/navPurchaseScreen/purchase/purchaseWidget.dart';
-import 'package:loginkeycloakapp/src/screen/purchase/navPurchaseScreen/purchase/tableWidget.dart';
+import 'component/filter_bottom_sheet.dart';
+import 'component/purchaseWidget.dart';
 
 class PurchaseOrderScreen extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-// late final Tablewidget tablewidget;
-
 class _HomePageState extends State<PurchaseOrderScreen> {
   int? _expandedIndex;
-  final List<String> _additionalFields = [
-    'Số chứng từ',
-    'Số hóa đơn',
-  ];
-  final List<bool> _isFieldExpanded = [false, false];
-  final _fromDateController = TextEditingController();
-  final _toDateController = TextEditingController();
-  final _descriptionController = TextEditingController();
-  final _productNameController = TextEditingController();
-
-  void _showFilterBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true, // Cho phép scroll nếu nội dung dài
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
-      ),
-      builder: (BuildContext context) {
-        return Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).viewInsets.bottom,
-            top: 16,
-            left: 16,
-            right: 16,
-          ),
-          child: StatefulBuilder(
-            builder: (BuildContext context, StateSetter setState) {
-              return SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Tìm kiếm',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: TextField(
-                            controller: _fromDateController,
-                            decoration: InputDecoration(
-                              labelText: 'Từ ngày',
-                              contentPadding: EdgeInsets.symmetric(
-                                  vertical: 8.0, horizontal: 12.0),
-                              prefixIcon: Icon(Icons.calendar_today),
-                              border: OutlineInputBorder(),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Theme.of(context).primaryColor),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 16),
-                        Expanded(
-                          child: TextField(
-                            controller: _toDateController,
-                            decoration: InputDecoration(
-                              labelText: 'Đến ngày',
-                              prefixIcon: Icon(Icons.calendar_today),
-                              contentPadding: EdgeInsets.symmetric(
-                                  vertical: 8.0, horizontal: 12.0),
-                              border: OutlineInputBorder(),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Theme.of(context).primaryColor),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 16),
-                    TextField(
-                      controller: _descriptionController,
-                      decoration: InputDecoration(
-                        labelText: 'Mô tả',
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 8.0, horizontal: 12.0),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Theme.of(context).primaryColor),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    TextField(
-                      controller: _productNameController,
-                      decoration: InputDecoration(
-                        labelText: 'Tên sản phẩm',
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 8.0, horizontal: 12.0),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Theme.of(context).primaryColor),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Column(
-                      children: _isFieldExpanded.asMap().entries.map((entry) {
-                        int index = entry.key;
-                        if (entry.value) {
-                          return Padding(
-                            padding: const EdgeInsets.only(top: 16.0),
-                            child: TextField(
-                              decoration: InputDecoration(
-                                labelText: _additionalFields[index],
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 8.0, horizontal: 12.0),
-                                border: OutlineInputBorder(),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Theme.of(context).primaryColor),
-                                ),
-                              ),
-                            ),
-                          );
-                        }
-                        return SizedBox.shrink();
-                      }).toList(),
-                    ),
-                    SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            IconButton(
-                              icon: Icon(Icons.add,
-                                  color: Theme.of(context).primaryColor),
-                              onPressed: () {
-                                setState(() {
-                                  _toggleField(true);
-                                });
-                              },
-                            ),
-                            IconButton(
-                              icon: Icon(Icons.remove,
-                                  color: Theme.of(context).primaryColor),
-                              onPressed: () {
-                                setState(() {
-                                  _toggleField(false);
-                                });
-                              },
-                            ),
-                          ],
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            // Xử lý tìm kiếm tại đây
-                            Navigator.of(context)
-                                .pop(); // Đóng bottom sheet sau khi tìm kiếm
-                          },
-                          child: Text('Tìm kiếm'),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 106, 198, 108),
-                            foregroundColor: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 16),
-                  ],
-                ),
-              );
-            },
-          ),
-        );
-      },
-    );
-  }
-
-  void _toggleField(bool isAdding) {
-    setState(() {
-      for (int i = 0; i < _isFieldExpanded.length; i++) {
-        if (isAdding) {
-          if (!_isFieldExpanded[i]) {
-            _isFieldExpanded[i] = true;
-            break;
-          }
-        } else {
-          if (_isFieldExpanded[i]) {
-            _isFieldExpanded[i] = false;
-            break;
-          }
-        }
-      }
-    });
-  }
 
   final List<Map<String, dynamic>> data = [
     {
@@ -372,19 +174,41 @@ class _HomePageState extends State<PurchaseOrderScreen> {
       "amount": 71000000
     },
   ];
+
   @override
   Widget build(BuildContext context) {
-    return Purchasewidget(
-      title: "Phiếu mua hàng",
-      showFilterDialog: () => _showFilterBottomSheet(context),
-      data: data,
-      // icon: icon,
-      iconButton: IconButton(
-        onPressed: () => _showFilterBottomSheet(context),
-        icon: Icon(Icons.filter_alt),
+    return Scaffold(
+      appBar: AppBar(title: Text("Phiếu mua hàng")),
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () => _showFilterBottomSheet(context),
+            child: Text("Mở lọc"),
+          ),
+          Expanded(
+            child: Purchasewidget(
+              title: 'Danh sách mua hàng',
+              showFilterDialog: () => _showFilterBottomSheet(context),
+              data: data,
+              iconButton: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.more_vert),
+              ),
+              expandedIndex: _expandedIndex,
+            ),
+          ),
+        ],
       ),
-      expandedIndex: _expandedIndex,
-      // tablewidget: tablewidget
+    );
+  }
+
+  void _showFilterBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return FilterBottomSheet();
+      },
     );
   }
 }
