@@ -56,12 +56,6 @@
       "languageVersion": "2.17"
     },
     {
-      "name": "dotenv",
-      "rootUri": "file:///C:/Users/lam08/AppData/Local/Pub/Cache/hosted/pub.dev/dotenv-4.2.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.16"
-    },
-    {
       "name": "equatable",
       "rootUri": "file:///C:/Users/lam08/AppData/Local/Pub/Cache/hosted/pub.dev/equatable-2.0.5",
       "packageUri": "lib/",
@@ -144,6 +138,12 @@
       "rootUri": "file:///C:/Users/lam08/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_appauth_platform_interface-6.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_dotenv",
+      "rootUri": "file:///C:/Users/lam08/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_dotenv-5.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "flutter_lints",
@@ -428,7 +428,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-09-10T19:45:25.887147Z",
+  "generated": "2024-10-01T02:18:33.278355Z",
   "generator": "pub",
   "generatorVersion": "3.4.4",
   "flutterRoot": "file:///C:/Users/lam08/AppData/Local/Flutter/flutter",
