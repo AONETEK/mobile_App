@@ -9,9 +9,9 @@ import 'package:loginkeycloakapp/src/screen/bank/cashCollectionScreen.dart';
 import 'package:loginkeycloakapp/src/screen/bank/cashPaymentScreen.dart';
 import 'package:loginkeycloakapp/src/screen/bank/collectDepositScreen.dart';
 import 'package:loginkeycloakapp/src/screen/bank/depositPaymentScreen.dart';
-import 'package:loginkeycloakapp/src/screen/contacts/customerScreen.dart';
-import 'package:loginkeycloakapp/src/screen/contacts/supplierScreen.dart';
+// import 'package:loginkeycloakapp/src/screen/contacts/contactScreen.dart';
 import 'package:loginkeycloakapp/src/screen/inventoryScreen.dart';
+import '../screen/contacts/contactScreen.dart';
 import 'package:loginkeycloakapp/src/screen/purchase/purchaseScreen.dart';
 import 'package:loginkeycloakapp/src/screen/service/purchasedServicesScreen.dart';
 import 'package:loginkeycloakapp/src/screen/service/salesServiceScreen.dart';
@@ -20,13 +20,9 @@ import 'package:loginkeycloakapp/src/screen/tax/personalIncomeTaxScreen.dart';
 import 'package:loginkeycloakapp/src/screen/tax/vat/prepareDeclarationScreen.dart';
 import 'package:loginkeycloakapp/src/screen/tax/vat/purchaseLedgerScreen.dart';
 import 'package:loginkeycloakapp/src/screen/tax/vat/sellLedgerScreen.dart';
-// import 'package:loginkeycloakapp/src/screen/uploadScreen.dart';
 import 'package:loginkeycloakapp/src/screen/warehouse/exportScreen.dart';
 import 'package:loginkeycloakapp/src/screen/warehouse/importScreen.dart';
 import '../screen/purchase/sellScreen.dart';
-// import 'package:loginkeycloakapp/src/services/notification/notification.dart';
-
-// final Notification_Api notification_api = Notification_Api();
 
 class SideMenu extends StatelessWidget {
   const SideMenu({super.key});
@@ -61,28 +57,13 @@ class SideMenu extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => HomeScreen()));
             },
           ),
-          ExpansionTile(
-            title: Text("Danh bạ"),
+          ListTile(
             leading: Icon(Icons.contacts_sharp),
-            childrenPadding: EdgeInsets.only(left: 20),
-            children: [
-              ListTile(
-                leading: Icon(Icons.people),
-                title: Text("Khách hàng"),
-                onTap: () => {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => CustomerScreen()))
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.business),
-                title: Text("Nhà cung cấp"),
-                onTap: () => {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SupplierScreen()))
-                },
-              ),
-            ],
+            title: Text("Danh bạ"),
+            onTap: () => {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ContactScreens()))
+            },
           ),
           ListTile(
             leading: Icon(Icons.inventory),

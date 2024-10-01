@@ -11,7 +11,7 @@ class Header extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor.withOpacity(0.1),
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(12),
           topRight: Radius.circular(12),
         ),
@@ -22,13 +22,13 @@ class Header extends StatelessWidget {
           Flexible(
             child: Text(
               '${row['postingDate']}',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          Flexible(
+          const Flexible(
             child: Icon(
               Icons.check_circle_outline,
               color: Colors.green,

@@ -24,7 +24,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Tìm kiếm',
+            const Text('Tìm kiếm',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             SizedBox(height: 16),
             DateField(

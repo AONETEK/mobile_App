@@ -13,7 +13,7 @@ class DateField extends StatelessWidget {
         Expanded(
           child: TextField(
             controller: fromController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Từ ngày',
               prefixIcon: Icon(Icons.calendar_today),
               border: OutlineInputBorder(),
@@ -24,7 +24,7 @@ class DateField extends StatelessWidget {
         Expanded(
           child: TextField(
             controller: toController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Đến ngày',
               prefixIcon: Icon(Icons.calendar_today),
               border: OutlineInputBorder(),

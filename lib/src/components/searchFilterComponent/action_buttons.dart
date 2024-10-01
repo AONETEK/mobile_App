@@ -15,13 +15,13 @@ class ActionButtons extends StatelessWidget {
       children: [
         Row(
           children: [
-            IconButton(icon: Icon(Icons.add), onPressed: onAdd),
-            IconButton(icon: Icon(Icons.remove), onPressed: onRemove),
+            IconButton(icon: const Icon(Icons.add), onPressed: onAdd),
+            IconButton(icon: const Icon(Icons.remove), onPressed: onRemove),
           ],
         ),
         ElevatedButton(
           onPressed: onSearch,
-          child: Text('Tìm kiếm'),
+          child: const Text('Tìm kiếm'),
         ),
       ],
     );

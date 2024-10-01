@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../utils/icon_title.dart';
-// import '../../../utils/custom_gnav_widget.dart';
-import '../../../Widget/detailsRow.dart';
+import '../../../components/searchFilterComponent/filter_bottom_sheet.dart';
+import '../../../components/gridviewCardPagingWidget.dart';
+import '../../../components/cardComponent/buildCard.dart';
 
 class SaleOrderScreen extends StatefulWidget {
   @override
@@ -9,228 +9,221 @@ class SaleOrderScreen extends StatefulWidget {
 }
 
 class _HomePageState extends State<SaleOrderScreen> {
-  int? selectedIndex;
   int? _expandedIndex;
+
+  final List<Map<String, dynamic>> data = [
+    {
+      "postingDate": "28/06/2024",
+      "orderNumber": "MH24-000024",
+      "invoiceNo": "00002495",
+      "suplier": "CÔNG TY CỔ PHẦN KIẾN TRÚC TRẺ",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY CỔ PHẦN KIẾN TRÚC TRẺ theo hoá đơn số 00000323",
+      "amount": 20000000
+    },
+    {
+      "postingDate": "30/06/2024",
+      "orderNumber": "MH24-000025",
+      "invoiceNo": "00002496",
+      "suplier": "CÔNG TY TNHH NỘI THẤT ĐỨC PHÁT",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH NỘI THẤT ĐỨC PHÁT theo hoá đơn số 00000324",
+      "amount": 50000000
+    },
+    {
+      "postingDate": "01/07/2024",
+      "orderNumber": "MH24-000026",
+      "invoiceNo": "00002497",
+      "suplier": "CÔNG TY TNHH XÂY DỰNG HỒNG PHÚ",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH XÂY DỰNG HỒNG PHÚ theo hoá đơn số 00000325",
+      "amount": 32000000
+    },
+    {
+      "postingDate": "05/07/2024",
+      "orderNumber": "MH24-000027",
+      "invoiceNo": "00002498",
+      "suplier": "CÔNG TY TNHH SẢN XUẤT THIẾT BỊ HÀNG HẢI",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH SẢN XUẤT THIẾT BỊ HÀNG HẢI theo hoá đơn số 00000326",
+      "amount": 42000000
+    },
+    {
+      "postingDate": "10/07/2024",
+      "orderNumber": "MH24-000028",
+      "invoiceNo": "00002499",
+      "suplier": "CÔNG TY TNHH TM DV CƠ KHÍ VIỆT PHÁT",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH TM DV CƠ KHÍ VIỆT PHÁT theo hoá đơn số 00000327",
+      "amount": 27500000
+    },
+    {
+      "postingDate": "15/07/2024",
+      "orderNumber": "MH24-000029",
+      "invoiceNo": "00002500",
+      "suplier": "CÔNG TY TNHH VẬT LIỆU XÂY DỰNG ANH KHOA",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH VẬT LIỆU XÂY DỰNG ANH KHOA theo hoá đơn số 00000328",
+      "amount": 67000000
+    },
+    {
+      "postingDate": "18/07/2024",
+      "orderNumber": "MH24-000030",
+      "invoiceNo": "00002501",
+      "suplier": "CÔNG TY CỔ PHẦN CƠ KHÍ XÂY DỰNG MINH ANH",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY CỔ PHẦN CƠ KHÍ XÂY DỰNG MINH ANH theo hoá đơn số 00000329",
+      "amount": 45000000
+    },
+    {
+      "postingDate": "22/07/2024",
+      "orderNumber": "MH24-000031",
+      "invoiceNo": "00002502",
+      "suplier": "CÔNG TY TNHH VẬT LIỆU CHỊU NHIỆT HÙNG CƯỜNG",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH VẬT LIỆU CHỊU NHIỆT HÙNG CƯỜNG theo hoá đơn số 00000330",
+      "amount": 38500000
+    },
+    {
+      "postingDate": "25/07/2024",
+      "orderNumber": "MH24-000032",
+      "invoiceNo": "00002503",
+      "suplier": "CÔNG TY TNHH CƠ ĐIỆN TỬ QUANG MINH",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH CƠ ĐIỆN TỬ QUANG MINH theo hoá đơn số 00000331",
+      "amount": 56000000
+    },
+    {
+      "postingDate": "28/07/2024",
+      "orderNumber": "MH24-000033",
+      "invoiceNo": "00002504",
+      "suplier": "CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN theo hoá đơn số 00000332",
+      "amount": 71000000
+    },
+    {
+      "postingDate": "28/07/2024",
+      "orderNumber": "MH24-000033",
+      "invoiceNo": "00002504",
+      "suplier": "CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN theo hoá đơn số 00000332",
+      "amount": 71000000
+    },
+    {
+      "postingDate": "28/07/2024",
+      "orderNumber": "MH24-000033",
+      "invoiceNo": "00002504",
+      "suplier": "CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN theo hoá đơn số 00000332",
+      "amount": 71000000
+    },
+    {
+      "postingDate": "28/07/2024",
+      "orderNumber": "MH24-000033",
+      "invoiceNo": "00002504",
+      "suplier": "CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN theo hoá đơn số 00000332",
+      "amount": 71000000
+    },
+    {
+      "postingDate": "28/07/2024",
+      "orderNumber": "MH24-000033",
+      "invoiceNo": "00002504",
+      "suplier": "CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN theo hoá đơn số 00000332",
+      "amount": 71000000
+    },
+    {
+      "postingDate": "28/07/2024",
+      "orderNumber": "MH24-000033",
+      "invoiceNo": "00002504",
+      "suplier": "CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN theo hoá đơn số 00000332",
+      "amount": 71000000
+    },
+    {
+      "postingDate": "28/07/2024",
+      "orderNumber": "MH24-000033",
+      "invoiceNo": "00002504",
+      "suplier": "CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN theo hoá đơn số 00000332",
+      "amount": 71000000
+    },
+    {
+      "postingDate": "28/07/2024",
+      "orderNumber": "MH24-000033",
+      "invoiceNo": "00002504",
+      "suplier": "CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN theo hoá đơn số 00000332",
+      "amount": 71000000
+    },
+    {
+      "postingDate": "28/07/2024",
+      "orderNumber": "MH24-000033",
+      "invoiceNo": "00002504",
+      "suplier": "CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN",
+      "description":
+          "Mua hàng từ nhà cung cấp CÔNG TY TNHH THƯƠNG MẠI XUẤT NHẬP KHẨU VIỆT TIẾN theo hoá đơn số 00000332",
+      "amount": 71000000
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> data = [
-      {
-        "postingDate": "06/08/2024",
-        "orderNumber": "MH24-000578",
-        "invoiceNo": "00002495",
-        "customer": "CÔNG TY TNHH THÉP ĐẶC BIỆT LÊ PHÚC",
-        "description":
-            "Mua hàng từ nhà cung cấp CÔNG TY TNHH THÉP ĐẶC BIỆT LÊ PHÚC theo hoá đơn số 00002495",
-        "amount": 7847280
-      },
-      {
-        "postingDate": "07/08/2024",
-        "orderNumber": "MH24-000579",
-        "invoiceNo": "00002496",
-        "customer": "CÔNG TY CỔ PHẦN XÂY DỰNG PHÚ THỊNH",
-        "description":
-            "Mua hàng từ nhà cung cấp CÔNG TY CỔ PHẦN XÂY DỰNG PHÚ THỊNH theo hoá đơn số 00002496",
-        "amount": 12500000
-      },
-      {
-        "postingDate": "08/08/2024",
-        "orderNumber": "MH24-000580",
-        "invoiceNo": "00002497",
-        "customer": "CÔNG TY TNHH NỘI THẤT VIỆT PHÁT",
-        "description":
-            "Mua hàng từ nhà cung cấp CÔNG TY TNHH NỘI THẤT VIỆT PHÁT theo hoá đơn số 00002497",
-        "amount": 9320000
-      },
-      {
-        "postingDate": "09/08/2024",
-        "orderNumber": "MH24-000581",
-        "invoiceNo": "00002498",
-        "customer": "CÔNG TY TNHH XÂY DỰNG ĐÔNG Á",
-        "description":
-            "Mua hàng từ nhà cung cấp CÔNG TY TNHH XÂY DỰNG ĐÔNG Á theo hoá đơn số 00002498",
-        "amount": 15250000
-      },
-      {
-        "postingDate": "10/08/2024",
-        "orderNumber": "MH24-000582",
-        "invoiceNo": "00002499",
-        "customer": "CÔNG TY TNHH VẬT LIỆU XÂY DỰNG THÁI BÌNH",
-        "description":
-            "Mua hàng từ nhà cung cấp CÔNG TY TNHH VẬT LIỆU XÂY DỰNG THÁI BÌNH theo hoá đơn số 00002499",
-        "amount": 6750000
-      },
-      {
-        "postingDate": "11/08/2024",
-        "orderNumber": "MH24-000583",
-        "invoiceNo": "00002500",
-        "customer": "CÔNG TY TNHH TM DV CƠ KHÍ HÀ NỘI",
-        "description":
-            "Mua hàng từ nhà cung cấp CÔNG TY TNHH TM DV CƠ KHÍ HÀ NỘI theo hoá đơn số 00002500",
-        "amount": 8200000
-      },
-      {
-        "postingDate": "12/08/2024",
-        "orderNumber": "MH24-000584",
-        "invoiceNo": "00002501",
-        "customer": "CÔNG TY TNHH XUẤT NHẬP KHẨU PHƯƠNG NAM",
-        "description":
-            "Mua hàng từ nhà cung cấp CÔNG TY TNHH XUẤT NHẬP KHẨU PHƯƠNG NAM theo hoá đơn số 00002501",
-        "amount": 9500000
-      },
-      {
-        "postingDate": "13/08/2024",
-        "orderNumber": "MH24-000585",
-        "invoiceNo": "00002502",
-        "customer": "CÔNG TY CỔ PHẦN THIẾT BỊ CÔNG NGHIỆP MINH PHÁT",
-        "description":
-            "Mua hàng từ nhà cung cấp CÔNG TY CỔ PHẦN THIẾT BỊ CÔNG NGHIỆP MINH PHÁT theo hoá đơn số 00002502",
-        "amount": 11250000
-      },
-      {
-        "postingDate": "14/08/2024",
-        "orderNumber": "MH24-000586",
-        "invoiceNo": "00002503",
-        "customer": "CÔNG TY TNHH VẬT LIỆU XÂY DỰNG NHẬT NAM",
-        "description":
-            "Mua hàng từ nhà cung cấp CÔNG TY TNHH VẬT LIỆU XÂY DỰNG NHẬT NAM theo hoá đơn số 00002503",
-        "amount": 7600000
-      },
-      {
-        "postingDate": "15/08/2024",
-        "orderNumber": "MH24-000587",
-        "invoiceNo": "00002504",
-        "customer": "CÔNG TY TNHH THƯƠNG MẠI ĐẠI AN",
-        "description":
-            "Mua hàng từ nhà cung cấp CÔNG TY TNHH THƯƠNG MẠI ĐẠI AN theo hoá đơn số 00002504",
-        "amount": 13350000
-      },
-    ];
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Đơn đặt hàng'),
+      body: Column(
+        children: [
+          Expanded(
+            child: GridviewCardPagingWidget(
+              title: 'Danh sách phiếu bán hàng',
+              showFilterDialog: () => _showFilterBottomSheet(context),
+              data: data,
+              iconButton: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.more_vert),
+              ),
+              expandedIndex: _expandedIndex,
+              cardBuilder: (index) => BuildCard(
+                row: data[index],
+                listLabel: [
+                  "Ngày hóa đơn",
+                  "Số chứng từ",
+                  "Số hóa đơn",
+                  "Nhà cung cấp",
+                  "Mô tả",
+                  "Số tiền sau thuế"
+                ],
+                listRow: [
+                  "postingDate",
+                  "orderNumber",
+                  "invoiceNo",
+                  "suplier",
+                  "description",
+                  "amount"
+                ],
+              ),
+            ),
+          )
+        ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            if (constraints.maxWidth > 600) {
-              // Hiển thị bảng đầy đủ trên tablet và desktop
-              return ListView(
-                children: data.asMap().entries.map(
-                  (entry) {
-                    final index = entry.key;
-                    final row = entry.value;
-                    final isExpanded = _expandedIndex == index;
+    );
+  }
 
-                    return Column(
-                      children: [
-                        DataTable(
-                          columns: const <DataColumn>[
-                            DataColumn(label: Text('Ngày chứng từ')),
-                            DataColumn(label: Text('Số chứng từ')),
-                            DataColumn(label: Text('Số hóa đơn')),
-                            DataColumn(label: Text('Nhà cung cấp')),
-                            DataColumn(label: Text('Mô tả')),
-                            DataColumn(label: Text('Số tiền sau thuế')),
-                          ],
-                          rows: [
-                            DataRow(
-                              cells: [
-                                DataCell(Text(row['name']!)),
-                                DataCell(Text(row['age']!)),
-                                DataCell(Text(row['job']!)),
-                                DataCell(
-                                  TextButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        _expandedIndex =
-                                            isExpanded ? null : index;
-                                      });
-                                    },
-                                    child: Text(isExpanded
-                                        ? 'Hide Details'
-                                        : 'Show Details'),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            if (isExpanded) ...[
-                              DataRow(
-                                cells: [
-                                  DataCell(Text('Address:')),
-                                  DataCell(Text(row['address']!)),
-                                  DataCell(Text('Phone:')),
-                                  DataCell(Text(row['phone']!)),
-                                ],
-                              ),
-                            ],
-                          ],
-                        ),
-                      ],
-                    );
-                  },
-                ).toList(),
-              );
-            } else {
-              // Trên mobile, hiển thị dạng danh sách dọc (card)
-              return ListView.builder(
-                itemCount: data.length,
-                itemBuilder: (context, index) {
-                  final row = data[index];
-                  final isExpanded = _expandedIndex == index;
-
-                  return Card(
-                    margin: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ListTile(
-                          title: Text(row['postingDate']!),
-                          titleTextStyle: TextStyle(
-                              color: const Color.fromARGB(255, 34, 107, 37),
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              buildDetailRow('Số chứng từ', row['orderNumber']),
-                              buildDetailRow('Số hóa đơn', row['invoiceNo']),
-                              buildDetailRow('Khách hàng', row['customer']),
-                              if (isExpanded) ...[
-                                buildDetailRow('Mô tả', row['description']),
-                                buildDetailRow('Số tiền sau thuế',
-                                    row['amount'].toString()),
-                              ],
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Align(
-                            alignment: Alignment.bottomRight,
-                            child: TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  _expandedIndex = isExpanded ? null : index;
-                                });
-                              },
-                              child: Text(
-                                  isExpanded ? 'Hide Details' : 'Show Details'),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              );
-            }
-          },
-        ),
-      ),
+  void _showFilterBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return FilterBottomSheet();
+      },
     );
   }
 }

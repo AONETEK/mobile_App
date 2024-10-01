@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../components/searchFilterComponent/filter_bottom_sheet.dart';
-import 'widget/purchaseWidget.dart';
+import '../../../components/gridviewCardPagingWidget.dart';
+import '../../../components/cardComponent/buildCard.dart';
 
 class PurchaseOrderScreen extends StatefulWidget {
   @override
@@ -181,7 +182,7 @@ class _HomePageState extends State<PurchaseOrderScreen> {
       body: Column(
         children: [
           Expanded(
-            child: Purchasewidget(
+            child: GridviewCardPagingWidget(
               title: 'Danh sách phiếu mua hàng',
               showFilterDialog: () => _showFilterBottomSheet(context),
               data: data,
@@ -190,8 +191,27 @@ class _HomePageState extends State<PurchaseOrderScreen> {
                 icon: Icon(Icons.more_vert),
               ),
               expandedIndex: _expandedIndex,
+              cardBuilder: (index) => BuildCard(
+                row: data[index],
+                listLabel: [
+                  "Ngày hóa đơn",
+                  "Số chứng từ",
+                  "Số hóa đơn",
+                  "Nhà cung cấp",
+                  "Mô tả",
+                  "Số tiền sau thuế"
+                ],
+                listRow: [
+                  "postingDate",
+                  "orderNumber",
+                  "invoiceNo",
+                  "suplier",
+                  "description",
+                  "amount"
+                ],
+              ),
             ),
-          ),
+          )
         ],
       ),
     );

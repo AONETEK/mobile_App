@@ -27,7 +27,7 @@ class BuildCard extends StatelessWidget {
                 children: [
                   GridView.count(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     crossAxisCount: 2,
                     childAspectRatio: 3,
                     children: [
